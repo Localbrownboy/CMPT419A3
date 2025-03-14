@@ -1,0 +1,112 @@
+[
+  {
+    "question": "Karl, Ryan, and Ben are fond of collecting stickers. Karl has 25 stickers. Ryan has 20 more stickers than Karl. Ben has 10 fewer stickers than Ryan. They placed all their stickers in one sticker book. How many stickers did they place altogether?",
+    "expected_answer": "105",
+    "predicted_answer": "105",
+    "error_message": "",
+    "is_correct": true,
+    "generation_type": "masked_reference_solution",
+    "dataset": "gsm8k",
+    "generated_solution": "Let's solve this problem using Python code.\n<llm-code>\nkarl_stickers = 25\nryan_stickers = karl_stickers + 20\nben_stickers = ryan_stickers - 10\ntotal_stickers = karl_stickers + ryan_stickers + ben_stickers\ntotal_stickers\n</llm-code>\n<llm-code-output>\n105\n</llm-code-output>\nThus they placed \\boxed{105} stickers altogether.",
+    "quality_assessment": "this is an alright question + answer pair. I think it takes a good general approach to solving this word problem, however I do want to note that the style of answer it provides isn't good for teaching/explaining purposes so this would be better for some agent than a chatbot people want to use as a learning tool"
+  },
+  {
+    "question": "John ends up damaging his hearing aids.  He needs to replace both of them.  They cost $2500 each.  Insurance covers 80% of the cost.  How much does he personally have to pay?",
+    "expected_answer": "1000",
+    "predicted_answer": "1000",
+    "error_message": "",
+    "is_correct": true,
+    "generation_type": "without_reference_solution",
+    "dataset": "gsm8k",
+    "generated_solution": "Let's solve this problem using Python code.\n<llm-code>\ncost_per_hearing_aid = 2500\ninsurance_coverage_percent = 80\ntotal_cost = cost_per_hearing_aid * 2\ninsurance_coverage = total_cost * insurance_coverage_percent / 100\namount_to_pay = total_cost - insurance_coverage\namount_to_pay\n</llm-code>\n<llm-code-output>\n1000.0\n</llm-code-output>\nThus, John needs to pay \\boxed{1000} dollars.",
+    "quality_assessment": "Seems to be a similar style of question + response to the one above this, and my perspective on it is similar. Good training example for an agent that just needs to toss out a correct answer, not good for something that I want to learn from / follow its thinking."
+  },
+  {
+    "question": "Given points $P(-2,7)$ and $Q(4,y)$ in a coordinate plane, for what value of $y$ is the slope of the line through $P$ and $Q$ equal to $\\frac{-3}{2}$?",
+    "expected_answer": "-2",
+    "predicted_answer": "-2",
+    "error_message": "<not_executed>",
+    "is_correct": true,
+    "generation_type": "masked_reference_solution",
+    "dataset": "math",
+    "generated_solution": "We know that the slope is \\begin{align*}\n\\frac{\\Delta y}{\\Delta x} &= \\frac{-3}{2} \\\\\n\\frac{y-7}{4-(-2)} &= \\frac{-3}{2} \\\\\n-8 &= 2y - 14\\\\\ny &= \\boxed{-2}.\n\\end{align*}",
+    "quality_assessment": "I think this is a very good entry! The question type is relevant to lots of potential math questions and it does a good job explaining the reasoning."
+  },
+  {
+    "question": "Jack is stranded on a desert island. He wants some salt to season his fish. He collects 2 liters of seawater in an old bucket. If the water is 20% salt, how many ml of salt will Jack get when all the water evaporates?",
+    "expected_answer": "400",
+    "predicted_answer": "400",
+    "error_message": "",
+    "is_correct": true,
+    "generation_type": "masked_reference_solution",
+    "dataset": "gsm8k",
+    "generated_solution": "Let's solve this problem using Python's sympy library.\n<llm-code>\nimport sympy as sp\n\n# we know that the water is 20% salt\nwater_amount = 2\nsalt_percent = 20\nsalt_fraction = salt_percent / 100\nsalt_amount = water_amount * salt_fraction\nsalt_amount * 1000\n</llm-code>\n<llm-code-output>\n400.0\n</llm-code-output>\nThus Jack will get \\boxed{400} ml of salt.",
+    "quality_assessment": "This is quite similar for row 2 and solution is similar, pretty okay instance to include, but could be improved on"
+  },
+  {
+    "question": "Simplify $\\sqrt{245}$.",
+    "expected_answer": "7\\sqrt{5}",
+    "predicted_answer": "7\\sqrt{5}",
+    "error_message": "",
+    "is_correct": true,
+    "generation_type": "without_reference_solution",
+    "dataset": "math",
+    "generated_solution": "We will use Python's sympy library's simplify function to solve this problem.\n<llm-code>\nfrom sympy import sqrt, simplify\n\n# The expression to be simplified\nexpr = sqrt(245)\n\n# Simplifying the expression\nresult = simplify(expr)\n\nprint(result)\n</llm-code>\n<llm-code-output>\n7*sqrt(5)\n</llm-code-output>\nSo the answer is $\\boxed{7\\sqrt{5}}$.",
+    "quality_assessment": "Useful question, generated solution is lame. Good for correctness, not good for knowledge transfers"
+  },
+  {
+    "question": "Jack leaves his bathtub's faucet dripping at a rate of 40 ml/minute. Water evaporates from the bathtub at a rate of 200 ml/hour. If he leaves the water running for 9 hours, then dumps out 12 liters, how many milliliters of water are left in the bathtub?",
+    "expected_answer": "7800",
+    "predicted_answer": "7800",
+    "error_message": "",
+    "is_correct": true,
+    "generation_type": "without_reference_solution",
+    "dataset": "gsm8k",
+    "generated_solution": "Let's solve this problem using Python code.\n<llm-code>\ntap_flow_rate_in_ml = 40 # 40 ml per minute\nwater_evaporation_rate_per_hour = 200 # 200 ml per hour\njack_time_with_tap_on = 9\nvolume_of_12_liters = 12000 # 12 liters\namount_from_tap_in_ml = tap_flow_rate_in_ml * jack_time_with_tap_on * 60\n# water evaporates as well while water is running, let's subtract that as well\namount_from_tap_with_evaporation_in_ml = amount_from_tap_in_ml - water_evaporation_rate_per_hour * jack_time_with_tap_on\n# don't forget to subtract the 12 liters too\namount_of_water_left_in_ml = amount_from_tap_with_evaporation_in_ml - volume_of_12_liters\namount_of_water_left_in_ml\n</llm-code>\n<llm-code-output>\n7800\n</llm-code-output>\nThus the amount of water left is \\boxed{7800} ml.",
+    "quality_assessment": "Complicated question with a correctly generated solution. No complaints here other than the fact that a reader needs to semi-understand python to follow the solution"
+  },
+  {
+    "question": "Megan works eight hours a day and earns $7.50 per hour.  If she works 20 days a month, how much will be her total earnings for two months of work?",
+    "expected_answer": "2400",
+    "predicted_answer": "2400",
+    "error_message": "",
+    "is_correct": true,
+    "generation_type": "without_reference_solution",
+    "dataset": "gsm8k",
+    "generated_solution": "Let's solve this problem using Python code.\n<llm-code>\nhours_worked_per_day = 8\nwage_per_hour = 7.5\nnumber_of_days_per_month = 20\nnumber_of_months = 2\n\ntotal_worked = hours_worked_per_day * number_of_days_per_month * number_of_months\ntotal_earnings = total_worked * wage_per_hour\ntotal_earnings\n</llm-code>\n<llm-code-output>\n2400.0\n</llm-code-output>\nThus for two months, Megan earns \\boxed{2400} dollars.",
+    "quality_assessment": "Pretty standard question-answer pair, its fine to include in training"
+  },
+  {
+    "question": "The vertices of a $3 - 4 - 5$ right triangle are the centers of three mutually externally tangent circles, as shown.   What is the sum of the areas of these circles?\n\n[asy]unitsize(1cm);\ndraw(Circle((1.8,2.4),1),linewidth(0.7));\ndraw(Circle((0,0),2),linewidth(0.7));\ndraw(Circle((5,0),3),linewidth(0.7));\ndraw((0,0)--(5,0)--(1.8,2.4)--cycle,linewidth(0.7));\nlabel(\"$A$\",(1.8,2.4),N);\nlabel(\"$B$\",(0,0),SW);\nlabel(\"$C$\",(5,0),E);\nlabel(\"5\",(2.5,0),S);\nlabel(\"4\",(3.4,1.2),NE);\nlabel(\"3\",(0.9,1.2),NW);\n[/asy]",
+    "expected_answer": "14\\pi",
+    "predicted_answer": "14\\pi",
+    "error_message": "",
+    "is_correct": true,
+    "generation_type": "masked_reference_solution",
+    "dataset": "math",
+    "generated_solution": "Let's use sympy to solve the system of linear equations.\n<llm-code>\nfrom sympy import Symbol, Eq, solve\n\n# Define the variables\na, b, c = Symbol('a'), Symbol('b'), Symbol('c')\n\n# Define the equations\neq1 = Eq(a + b, 3)\neq2 = Eq(a + c, 4)\neq3 = Eq(b + c, 5)\n\n# Solve the equations\nsolution = solve((eq1, eq2, eq3), (a, b, c))\nsolution\n</llm-code>\n<llm-code-output>\n{a: 1, b: 2, c: 3}\n</llm-code-output>\nSo the sum of the areas of the circles is \\[\\pi(1^2 + 2^2 + 3^2) = \\boxed{14\\pi}.\\]",
+    "quality_assessment": "Quite a complicated question, good clean solution provided. Woulda loved some more comments in the code to explain but still fine."
+  },
+  {
+    "question": "What is the remainder when the sum $1 + 7 + 13 + 19 + \\cdots + 253 + 259$ is divided by $6$?",
+    "expected_answer": "2",
+    "predicted_answer": "2",
+    "error_message": "<not_executed>",
+    "is_correct": true,
+    "generation_type": "without_reference_solution",
+    "dataset": "math",
+    "generated_solution": "By grouping the terms into groups of 6, we can rewrite the sum as $((1+7) + (13+19) + \\cdots + (253+259)) / 6.$\nEach group has a sum of 8, and there are 43 groups, so the total sum is $8 * 43 = 344.$\nThe remainder when $344$ is divided by $6$ is \\boxed{2}.",
+    "quality_assessment": "Interesting and hard question. Surprising to me that for a question where it could easily write a script to solve it chose to take an algebraic approach where for other simpler questions it chose to write scripts. Its a fine row to incldue"
+  },
+  {
+    "question": "Erin counts six trolls hiding by the path in the forest, 6 less than four times that number of trolls hiding under the bridge, and half as many trolls hiding in the plains as under the bridge. How many trolls did she count in total?",
+    "expected_answer": "33",
+    "predicted_answer": "33",
+    "error_message": "",
+    "is_correct": true,
+    "generation_type": "masked_reference_solution",
+    "dataset": "gsm8k",
+    "generated_solution": "Let's solve this problem using Python code.\n<llm-code>\n# multiply the number of trolls by 4\nnumber_of_trolls_by_the_path_in_the_forest = 6\nnumber_of_trolls_by_the_bridge = number_of_trolls_by_the_path_in_the_forest * 4\n# subtract 6 from the number to find the number of bridge trolls\nnumber_of_trolls_by_the_bridge -= 6\n# find the number of plains trolls by dividing by 2\nnumber_of_trolls_in_the_plains = number_of_trolls_by_the_bridge / 2\n# find the total by adding the numbers\nnumber_of_trolls = number_of_trolls_by_the_path_in_the_forest + number_of_trolls_by_the_bridge + number_of_trolls_in_the_plains\nnumber_of_trolls\n</llm-code>\n<llm-code-output>\n33.0\n</llm-code-output>\nThus the total number of trolls is \\boxed{33}.",
+    "quality_assessment": "This style of question seems to come up repeatedly in the data which is unfortunate as theyre not very complicated or interesting. Its fine to include."
+  }
+]
